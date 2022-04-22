@@ -6,10 +6,15 @@
   "author": "Jonathan James Watson <23344719+jonathanjameswatson@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nitro dev",
-    "build": "NITRO_PRESET=cloudflare nitro build"
+    "dev": "NITRO_PRESET=cloudflare yarn build && miniflare .output/server/index.mjs --site .output/public",
+    "build": "NITRO_PRESET=cloudflare nitro build",
+    "lint": "eslint --ext .ts,.mjs,.cjs ."
   },
   "devDependencies": {
-    "nitropack": "^0.3.5"
+    "@nuxtjs/eslint-config-typescript": "^9.0.0",
+    "eslint": "^8.13.0",
+    "miniflare": "^2.4.0",
+    "nitropack": "^0.3.5",
+    "typescript": "^4.6.3"
   }
 }

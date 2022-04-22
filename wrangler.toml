@@ -5,6 +5,10 @@ workers_dev = true
 route = ""
 zone_id = ""
 
+kv_namespaces = [
+  { binding = "ENTRIES", id = "4e085c50fcd4431e9980ff3ca699e711", preview_id = "<ignored>" },
+]
+
 [site]
 bucket = ".output/public"
 entry-point = ".output"

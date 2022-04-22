@@ -1,6 +1,10 @@
+# Editor
+.vscode
+
 # Nitro
 .nitro
 .output
+nitro.d.ts
 
 # Logs
 logs
