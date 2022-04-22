@@ -1,0 +1,15 @@
+{
+  "name": "jjw-proxy",
+  "version": "1.0.0",
+  "description": "Customisable Cloudflare Workers proxy",
+  "repository": "https://github.com/jonathanjameswatson/jjw-proxy.git",
+  "author": "Jonathan James Watson <23344719+jonathanjameswatson@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nitro dev",
+    "build": "NITRO_PRESET=cloudflare nitro build"
+  },
+  "devDependencies": {
+    "nitropack": "^0.3.5"
+  }
+}
