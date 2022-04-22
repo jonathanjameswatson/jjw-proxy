@@ -5,7 +5,7 @@ export interface Entry {
   destination: string;
   headers?: {
     [key: string]: string;
-  }
+  };
   params?: {
     [key: string]: string;
   };
@@ -29,17 +29,25 @@ export const fetchProxy = async (
   event: CompatibilityEvent
 ) => {
   const query = useQuery(event)
-  const queryString = Object.keys(query).length > 0 ? `?${stringifyQuery(query)}` : ''
+  const queryString =
+    Object.keys(query).length > 0 ? `?${stringifyQuery(query)}` : ''
   const body = useBody(event) as any
-  const result = await globalThis.fetch(
-    `${endpoint === undefined
-      ? entry.destination
-      : `${entry.destination}/${endpoint}`}${queryString}`,
+
+  const response = await globalThis.fetch(
+    `${
+      endpoint === undefined
+        ? entry.destination
+        : `${entry.destination}/${endpoint}`
+    }${queryString}`,
     {
       headers: entry.headers,
       method: useMethod(event),
-      ...(body || {})
+      ...(body && Object.keys(body).length > 0 ? { body } : {})
     }
   )
-  return result.json()
+
+  appendHeader(event, 'Access-Control-Allow-Origin', '*')
+  appendHeader(event, 'Vary', '*')
+
+  return response.json()
 }
