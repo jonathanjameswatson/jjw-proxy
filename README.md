@@ -21,6 +21,6 @@ For example, an entry with key `path` and value `{ "destination": "https://googl
 - Build for Cloudflare workers with `yarn build`
 - Lint code with `yarn lint`
 
-### License
+## License
 
 [MIT license](https://choosealicense.com/licenses/mit/)
